@@ -1,0 +1,6 @@
+Flask==1.1.2
+spacy==2.3.5
+pytest==6.2.1
+spacy-langdetect==0.1.2
+flask_inputs==0.3.0
+jsonschema==3.2.0
