@@ -2,7 +2,7 @@ from .tokenizer import Tokenizer
 from .languages import Languages
 import gc
 
-SIMULTANEOUS_TOKENIZERS = 2
+SIMULTANEOUS_TOKENIZERS = 3
 
 
 class TokenizerEngine:

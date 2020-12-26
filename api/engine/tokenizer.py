@@ -6,6 +6,7 @@ from .languages import Languages, tokenizer_exceptions, custom_functions
 MIN_CONFIDENCE = 0.7
 UNKNOWN = 'UNKNOWN'
 
+# Using the smallest models possible because of memory constraints in heroku
 models = {
         Languages.ENGLISH: 'en_core_web_sm',
         Languages.SPANISH: 'es_core_news_sm',
@@ -20,7 +21,7 @@ class Tokenizer:
         Load the correct model for the selected language.
         Trim the pipeline to speed up the process
         """
-        return spacy.load(models[self.lang])
+        return spacy.load(models[self.lang], disable=['ner'])
 
     def __init__(self, lang: Languages):
         self.lang = lang
@@ -39,7 +40,7 @@ class Tokenizer:
         """
         Tokenize a text, return a list of valid tokens (removing punctuation and spaces.)
         """
-        with self.nlp.disable_pipes("ner", 'language_detector'):
+        with self.nlp.disable_pipes('language_detector'):
             return [self.fn(tkn) for tkn in self.nlp(text) if self.is_valid(tkn)]
 
     def is_valid(self, token):

@@ -1,4 +1,8 @@
 # Multi-Language Parser
+
+The project is divided in two simple parts. The api and the engine. The api handles requests, exceptions and flask functions while the engine is in charge of all the natural language operations.
+The supported languages are english, spanish, portuguese and french. All the tokenizing is done using spacy. 
+
 ## Endpoints
 * **Root URL**
 `https://multi-lang-parser.herokuapp.com`

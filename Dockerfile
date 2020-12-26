@@ -18,4 +18,4 @@ RUN python -m spacy download pt_core_news_sm
 RUN python -m spacy download xx_ent_wiki_sm
 
 ENTRYPOINT [ "python" ]
-CMD ["-m", "api.__init__" ]
+CMD ["-m", "api.__init__"]
